@@ -15,7 +15,7 @@ struct ClipStackApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(ClipboardMonitor.shared)
         }
     }
 }

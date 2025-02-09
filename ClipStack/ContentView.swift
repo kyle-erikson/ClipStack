@@ -11,15 +11,19 @@ import SwiftUI
 struct ContentView: View {
     @State private var text: String = "Test"
     @State var tapCount = 0
+    @EnvironmentObject var clipboardMonitor: ClipboardMonitor
 
     var body: some View {
         VStack {
             Text("history")
+            ForEach(clipboardMonitor.clipboardTextHistory, id: \.self) { item in
+                Text(item)
+            }
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView().environmentObject(ClipboardMonitor.shared)
 }

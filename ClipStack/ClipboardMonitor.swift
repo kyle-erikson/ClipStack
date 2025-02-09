@@ -10,9 +10,12 @@ import Cocoa
 import SwiftUI
 
 // Clipboard Monitor
-class ClipboardMonitor {
+class ClipboardMonitor: ObservableObject {
     private var timer: Timer?
     private var lastChangeCount: Int
+    @Published var clipboardTextHistory: [String] = []
+    
+    static var shared = ClipboardMonitor()
     
     init() {
         lastChangeCount = NSPasteboard.general.changeCount
@@ -45,6 +48,7 @@ class ClipboardMonitor {
     private func checkClipboard() {
         if let copiedString = NSPasteboard.general.string(forType: .string) {
             print("Copied text: \(copiedString)")
+            clipboardTextHistory.append(copiedString)
         }
     }
     
