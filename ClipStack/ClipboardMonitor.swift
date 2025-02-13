@@ -47,8 +47,22 @@ class ClipboardMonitor: ObservableObject {
     
     private func checkClipboard() {
         if let copiedString = NSPasteboard.general.string(forType: .string) {
-            print("Copied text: \(copiedString)")
+//            print("Copied text: \(copiedString)")
             clipboardTextHistory.append(copiedString)
+        }
+    }
+    
+    func makeClipboardPrimary(item: String) {
+        print("setting pasteboard")
+        let pasteboard = NSPasteboard.general
+        pasteboard.setString(item, forType: .string)
+        pasteboard.pasteboardItems?.forEach { item in
+            print("\nItem types:", item.types)
+            for type in item.types {
+                if let data = item.string(forType: type) {
+                    print("Content for type \(type):", data)
+                }
+            }
         }
     }
     
