@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F04847072D6166F700B54C8B /* HighlightSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F04847062D6166F700B54C8B /* HighlightSwift */; };
+		F04D71052D614EBF00332DF6 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D71042D614EBF00332DF6 /* ItemRow.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F02E2CE12D56E49C0039D762 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,7 @@
 		F02E2CCF2D56E49B0039D762 /* ClipStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02E2CE02D56E49C0039D762 /* ClipStackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipStackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02E2CEA2D56E49C0039D762 /* ClipStackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipStackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F04D71042D614EBF00332DF6 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04847072D6166F700B54C8B /* HighlightSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,7 @@
 		F02E2CC62D56E49B0039D762 = {
 			isa = PBXGroup;
 			children = (
+				F04D71042D614EBF00332DF6 /* ItemRow.swift */,
 				F02E2CD12D56E49B0039D762 /* ClipStack */,
 				F02E2CE32D56E49C0039D762 /* ClipStackTests */,
 				F02E2CED2D56E49C0039D762 /* ClipStackUITests */,
@@ -112,6 +120,7 @@
 			);
 			name = ClipStack;
 			packageProductDependencies = (
+				F04847062D6166F700B54C8B /* HighlightSwift */,
 			);
 			productName = ClipStack;
 			productReference = F02E2CCF2D56E49B0039D762 /* ClipStack.app */;
@@ -195,6 +204,9 @@
 			);
 			mainGroup = F02E2CC62D56E49B0039D762;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F04847052D6166F700B54C8B /* XCRemoteSwiftPackageReference "highlightswift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F02E2CD02D56E49B0039D762 /* Products */;
 			projectDirPath = "";
@@ -236,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04D71052D614EBF00332DF6 /* ItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +554,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F04847052D6166F700B54C8B /* XCRemoteSwiftPackageReference "highlightswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appstefan/highlightswift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F04847062D6166F700B54C8B /* HighlightSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F04847052D6166F700B54C8B /* XCRemoteSwiftPackageReference "highlightswift" */;
+			productName = HighlightSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F02E2CC72D56E49B0039D762 /* Project object */;
 }

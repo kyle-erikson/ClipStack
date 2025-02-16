@@ -55,15 +55,17 @@ class ClipboardMonitor: ObservableObject {
     func makeClipboardPrimary(item: String) {
         print("setting pasteboard")
         let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
         pasteboard.setString(item, forType: .string)
-        pasteboard.pasteboardItems?.forEach { item in
-            print("\nItem types:", item.types)
-            for type in item.types {
-                if let data = item.string(forType: type) {
-                    print("Content for type \(type):", data)
-                }
-            }
-        }
+        lastChangeCount += 1
+//        pasteboard.pasteboardItems?.forEach { item in
+//            print("\nItem types:", item.types)
+//            for type in item.types {
+//                if let data = item.string(forType: type) {
+//                    print("Content for type \(type):", data)
+//                }
+//            }
+//        }
     }
     
     deinit {

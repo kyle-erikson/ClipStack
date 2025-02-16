@@ -15,8 +15,11 @@ struct ClipStackApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(ClipboardMonitor.shared)
+            ContentView()
+                .environmentObject(ClipboardMonitor.shared)
+                .background(.regularMaterial)
         }
+        .windowStyle(.hiddenTitleBar)
     }
 }
 
@@ -29,6 +32,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Start monitoring
         clipboardMonitor = ClipboardMonitor()
+
+        if let window = NSApplication.shared.windows.first {
+            configureWindow(window)
+        }
+    }
+
+    private func configureWindow(_ window: NSWindow) {
+        // Get the main screen
+        guard let screen = NSScreen.main else { return }
+
+        // Calculate the frame for lower third
+        let screenFrame = screen.visibleFrame
+        let windowHeight = screenFrame.height / 3
+
+        // Create the new frame
+        let newFrame = NSRect(
+            x: screenFrame.minX,
+            y: screenFrame.minY,
+            width: screenFrame.width,
+            height: windowHeight
+        )
+
+        // Set window properties
+        window.setFrame(newFrame, display: true)
+        window.level = .floating // Optional: keeps window above others
+        window.isMovable = false // Optional: prevents window from being moved
     }
 }
 
