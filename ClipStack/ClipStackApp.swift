@@ -17,7 +17,7 @@ struct ClipStackApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(ClipboardMonitor.shared)
-                .background(.regularMaterial)
+                .containerBackground(.ultraThinMaterial, for: .window)
         }
         .windowStyle(.hiddenTitleBar)
     }
@@ -44,14 +44,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Calculate the frame for lower third
         let screenFrame = screen.visibleFrame
-        let windowHeight = screenFrame.height / 3
+        let windowWidth = screenFrame.width / 4
 
         // Create the new frame
         let newFrame = NSRect(
-            x: screenFrame.minX,
+            x: screenFrame.maxX / 2,
             y: screenFrame.minY,
-            width: screenFrame.width,
-            height: windowHeight
+            width: windowWidth,
+            height: screenFrame.height
         )
 
         // Set window properties

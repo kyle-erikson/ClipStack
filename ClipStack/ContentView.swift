@@ -6,7 +6,6 @@
 //
 
 import Carbon
-import HighlightSwift
 import SwiftUI
 
 struct ContentView: View {
@@ -27,10 +26,6 @@ struct ContentView: View {
                 }.padding()
             }
         }
-        let htmlString = """
-        const fn = () => "Text"
-        """
-        CodeText(htmlString)
     }
 }
 
